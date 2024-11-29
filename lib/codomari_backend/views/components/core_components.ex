@@ -1,4 +1,4 @@
-defmodule CodomariBackendWeb.CoreComponents do
+defmodule CodomariBackend.Views.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -17,7 +17,7 @@ defmodule CodomariBackendWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import CodomariBackendWeb.Gettext
+  import CodomariBackend.Helpers.Gettext
 
   @doc """
   Renders a modal.
@@ -659,9 +659,9 @@ defmodule CodomariBackendWeb.CoreComponents do
     # with our gettext backend as first argument. Translations are
     # available in the errors.po file (as we use the "errors" domain).
     if count = opts[:count] do
-      Gettext.dngettext(CodomariBackendWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(CodomariBackend.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(CodomariBackendWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(CodomariBackend.Gettext, "errors", msg, opts)
     end
   end
 

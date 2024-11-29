@@ -2,7 +2,7 @@ import Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :codomari_backend, CodomariBackendWeb.Endpoint,
+config :codomari_backend, CodomariBackend.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "rLI7RzT9KuMjlw00Sc0Igxm8XYNOizrtJOrCnSLW2uUYQmHSlP8eJOKqwEO4gyQi",
   server: false

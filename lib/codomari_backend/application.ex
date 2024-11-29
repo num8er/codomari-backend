@@ -8,7 +8,7 @@ defmodule CodomariBackend.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      CodomariBackendWeb.Telemetry,
+      CodomariBackend.Telemetry,
       {DNSCluster, query: Application.get_env(:codomari_backend, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: CodomariBackend.PubSub},
       # Start the Finch HTTP client for sending emails
@@ -16,7 +16,7 @@ defmodule CodomariBackend.Application do
       # Start a worker by calling: CodomariBackend.Worker.start_link(arg)
       # {CodomariBackend.Worker, arg},
       # Start to serve requests, typically the last entry
-      CodomariBackendWeb.Endpoint
+      CodomariBackend.Endpoint
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -29,7 +29,7 @@ defmodule CodomariBackend.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    CodomariBackendWeb.Endpoint.config_change(changed, removed)
+    CodomariBackend.Endpoint.config_change(changed, removed)
     :ok
   end
 end

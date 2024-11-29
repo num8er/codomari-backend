@@ -1,5 +1,5 @@
-defmodule CodomariBackendWeb.ErrorHTML do
-  use CodomariBackendWeb, :html
+defmodule CodomariBackend.Renderers.ErrorHTML do
+  use CodomariBackend, :html
 
   # If you want to customize your error pages,
   # uncomment the embed_templates/1 call below

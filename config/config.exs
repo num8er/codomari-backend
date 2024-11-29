@@ -11,11 +11,14 @@ config :codomari_backend,
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :codomari_backend, CodomariBackendWeb.Endpoint,
+config :codomari_backend, CodomariBackend.Endpoint,
   url: [host: "localhost"],
   adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
-    formats: [html: CodomariBackendWeb.ErrorHTML, json: CodomariBackendWeb.ErrorJSON],
+    formats: [
+      html: CodomariBackend.Renderers.ErrorHTML,
+      json: CodomariBackend.Renderers.ErrorJSON
+    ],
     layout: false
   ],
   pubsub_server: CodomariBackend.PubSub,

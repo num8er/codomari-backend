@@ -1,4 +1,0 @@
-PROJECT=codomari
-TYPE=service
-NAME=codomari_backend
-VERSION=0.0.1
