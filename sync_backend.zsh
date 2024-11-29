@@ -8,7 +8,7 @@ REMOTE_DIR="/apps/codomari_backend"
 
 # Rsync command
 rsync -avz --delete \
-    --exclude-from=".rsync-exclude" \
+    --exclude-from=".sync_backend.exclude" \
     "$LOCAL_DIR" "$REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR"
 
 # Explanation of options:
