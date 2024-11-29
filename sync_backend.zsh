@@ -17,3 +17,5 @@ rsync -avz --delete \
 # -z: Compress data during transfer
 # --delete: Deletes files on the destination that are not in the source
 # --exclude-from="exclusion list file": Exclude files and directories listed in the specified file
+
+ssh -t $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_DIR && rm -rf deps && mix deps.get"
