@@ -17,7 +17,7 @@ defmodule CodomariBackendWeb.Router do
   scope "/", CodomariBackendWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", PageController, :manifest
   end
 
   # Other scopes may use custom stacks.

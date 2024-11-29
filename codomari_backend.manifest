@@ -1,6 +1,4 @@
-{
-  "project": "codomari",
-  "type": "service",
-  "name": "codomari_backend",
-  "version": "0.0.1"
-}
+PROJECT=codomari
+TYPE=service
+NAME=codomari_backend
+VERSION=0.0.1
