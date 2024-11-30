@@ -3,11 +3,6 @@ defmodule CodomariBackend do
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
-  This can be used in your application as:
-
-      use CodomariBackend, :controller
-      use CodomariBackend, :html
-
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
   on imports, uses and aliases.

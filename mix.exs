@@ -9,7 +9,8 @@ defmodule CodomariBackend.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      releases: releases()
     ]
   end
 
@@ -20,6 +21,23 @@ defmodule CodomariBackend.MixProject do
     [
       mod: {CodomariBackend.Application, []},
       extra_applications: [:logger, :runtime_tools]
+    ]
+  end
+
+  def releases do
+    [
+      codomari_backend: [
+        include_executables_for: [:unix],
+        applications: [
+          runtime_tools: :permanent,
+          telemetry_metrics: :permanent,
+          telemetry_poller: :permanent
+        ],
+        steps: [
+          :assemble,
+          :tar
+        ]
+      ]
     ]
   end
 

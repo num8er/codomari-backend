@@ -1,4 +1,5 @@
 _build
+_releases
 .git*
 .elixir_ls
 deps

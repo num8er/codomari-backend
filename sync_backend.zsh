@@ -19,3 +19,5 @@ rsync -avz --delete \
 # --exclude-from="exclusion list file": Exclude files and directories listed in the specified file
 
 ssh -t $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_DIR && rm -rf deps && mix deps.get"
+ssh -t $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_DIR && mix compile && MIX_ENV=dev mix release codomari_backend --overwrite --path _releases"
+
