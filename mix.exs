@@ -2,9 +2,13 @@ defmodule CodomariBackend.MixProject do
   use Mix.Project
 
   def project do
+    Code.require_file("lib/codomari_backend.ex")
+
+    manifest = CodomariBackend.manifest()
+
     [
-      app: :codomari_backend,
-      version: "0.0.2",
+      app: manifest[:app],
+      version: manifest[:version],
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,

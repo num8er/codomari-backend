@@ -18,7 +18,7 @@ rsync -avz --delete \
 # --delete: Deletes files on the destination that are not in the source
 # --exclude-from="exclusion list file": Exclude files and directories listed in the specified file
 
-VERSION=$(grep -E 'version:' mix.exs | sed -E "s/.*version: \"([^\"]+)\".*/\1/")
+VERSION=$(grep -E 'version:' lib/codomari_backend.ex | sed -E "s/.*version: \"([^\"]+)\".*/\1/")
 
 ssh -t $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_DIR ; rm -rf deps && mix deps.get"
 ssh -t $REMOTE_USER@$REMOTE_HOST "cd $REMOTE_DIR ; MIX_ENV=dev mix release codomari_backend --overwrite --path _releases --version $VERSION"

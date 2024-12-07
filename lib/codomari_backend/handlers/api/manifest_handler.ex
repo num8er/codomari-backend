@@ -1,26 +1,27 @@
 defmodule CodomariBackend.Handlers.Api.ManifestHandler do
+  @moduledoc """
+  Handler serves information about the service.
+  """
+
   use CodomariBackend, :controller
 
+  @doc """
+  Returns information about the service to connection as json.
+  """
+  @spec handle(Plug.Conn.t(), map) :: Plug.Conn.t()
   def handle(conn, _params) do
-    project_data = project_from_mix()
+    manifest = CodomariBackend.manifest()
 
     response_data =
       [
-        project: "codomari",
-        type: "service"
-      ] ++
-        project_data
+        project: Atom.to_string(manifest[:project]),
+        type: Atom.to_string(manifest[:type]),
+        name: Atom.to_string(manifest[:app]),
+        version: manifest[:version]
+      ]
 
-    json(conn, Jason.OrderedObject.new(response_data))
-  end
-
-  defp project_from_mix do
-    app = CodomariBackend.MixProject.project()[:app]
-    version = CodomariBackend.MixProject.project()[:version]
-
-    [
-      name: Atom.to_string(app),
-      version: version
-    ]
+    response_data
+    |> Jason.OrderedObject.new()
+    |> then(&json(conn, &1))
   end
 end
