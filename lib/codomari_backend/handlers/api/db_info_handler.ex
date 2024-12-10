@@ -1,4 +1,4 @@
-defmodule CodomariBackend.Handlers.Api.DbInfo do
+defmodule CodomariBackend.Handlers.Api.DbInfoHandler do
   @moduledoc """
   Handler serves information about database.
   """
