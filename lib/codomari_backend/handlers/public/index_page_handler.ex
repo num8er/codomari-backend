@@ -1,4 +1,8 @@
 defmodule CodomariBackend.Handlers.Public.IndexPageHandler do
+  @moduledoc """
+  Handler serving landing page
+  """
+
   use CodomariBackend, :controller
 
   def handle(conn, _params) do

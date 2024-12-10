@@ -7,7 +7,7 @@ defmodule CodomariBackend.Database.PoolWorker do
 
   alias :couchbeam, as: Couchbeam
 
-  # Client 
+  # Client
   def start_link(_) do
     GenServer.start_link(__MODULE__, nil)
   end

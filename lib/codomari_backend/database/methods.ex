@@ -5,7 +5,7 @@ defmodule CodomariBackend.Database.Methods do
 
   alias :poolboy, as: Poolboy
 
-  def server_info() do
+  def server_info do
     call_on_worker(:server_info)
   end
 

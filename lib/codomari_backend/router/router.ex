@@ -1,8 +1,8 @@
 defmodule CodomariBackend.Router do
   use CodomariBackend, :router
 
-  alias Handlers.Api.ManifestHandler
   alias Handlers.Api.DbInfoHandler
+  alias Handlers.Api.ManifestHandler
   alias Handlers.Public.IndexPageHandler
 
   pipeline :api do
