@@ -26,3 +26,5 @@ erl_crash.dump
 codomari_backend-*.tar
 
 /_releases/
+
+mix.lock
