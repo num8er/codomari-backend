@@ -67,7 +67,9 @@ defmodule CodomariBackend.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:couchbeam, "~> 1.5.3"},
+      {:poolboy, "~> 1.5.2"}
     ]
   end
 

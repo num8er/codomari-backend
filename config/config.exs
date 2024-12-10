@@ -24,6 +24,9 @@ config :codomari_backend, CodomariBackend.Endpoint,
   pubsub_server: CodomariBackend.PubSub,
   live_view: [signing_salt: "Cm7Uk7tV"]
 
+# DB
+import_config "couchdb.exs"
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
@@ -31,7 +34,8 @@ config :codomari_backend, CodomariBackend.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :codomari_backend, CodomariBackend.Mailer, adapter: Swoosh.Adapters.Local
+config :codomari_backend, CodomariBackend.Mailer, 
+  adapter: Swoosh.Adapters.Local
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -40,6 +44,7 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

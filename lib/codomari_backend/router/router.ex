@@ -2,6 +2,7 @@ defmodule CodomariBackend.Router do
   use CodomariBackend, :router
 
   alias Handlers.Api.ManifestHandler, as: ManifestHandler
+  alias Handlers.Api.DbInfo, as: DbInfo
   alias Handlers.Public.IndexPageHandler, as: IndexPageHandler
 
   pipeline :api do
@@ -21,6 +22,7 @@ defmodule CodomariBackend.Router do
 
     get "/", ManifestHandler, :handle
     get "/manifest", ManifestHandler, :handle
+    get "/db/info", DbInfo, :handle
   end
 
   scope "/", CodomariBackend do
