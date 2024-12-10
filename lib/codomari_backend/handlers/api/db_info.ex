@@ -11,7 +11,7 @@ defmodule CodomariBackend.Handlers.Api.DbInfo do
   """
   @spec handle(Plug.Conn.t(), map) :: Plug.Conn.t()
   def handle(conn, _params) do
-    DB.get_server_info()
+    DB.server_info()
     |> tuple_to_map()
     |> then(&json(conn, &1))
   end

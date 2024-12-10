@@ -5,12 +5,13 @@ defmodule CodomariBackend.Database.Methods do
 
   alias :poolboy, as: Poolboy
 
-  def get_server_info() do
-    Poolboy.transaction(:couchdb_pool, fn worker_pid ->
-      server_info = GenServer.call(worker_pid, :server_info)
+  def server_info() do
+    call_on_worker(:server_info)
+  end
 
-      IO.inspect(server_info)
-      server_info
+  def call_on_worker(method) do
+    Poolboy.transaction(:couchdb_pool, fn worker_pid ->
+      GenServer.call(worker_pid, method)
     end)
   end
 end
