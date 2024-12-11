@@ -7,12 +7,10 @@ defmodule CodomariBackend.Database.PoolWorker do
 
   alias :couchbeam, as: Couchbeam
 
-  # Client
   def start_link(_) do
     GenServer.start_link(__MODULE__, nil)
   end
 
-  # Server
   def init(_) do
     %{conn: conn, db: db} = connect()
 
