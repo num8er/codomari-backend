@@ -1,18 +1,22 @@
 # CodomariBackend
 
-To start your Phoenix server:
+Set of backend apps for Codomari project.
 
-  * Run `mix setup` to install and setup dependencies
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+Based on monorepo (umbrella) pattern:
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+1. apps located in `apps` folder
+2. shared libs are in `lib`.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+---
 
-## Learn more
+To run `apps/APP_NAME` need to execute:
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+```sh
+mix app.start APP_NAME
+```
+
+Currently we have `codomari_api` which can be run as:
+
+```
+mix app.start codomari_api
+```
