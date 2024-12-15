@@ -27,3 +27,11 @@ codomari_backend-*.tar
 
 /_releases/
 
+/.elixir_ls
+/apps/**/.elixir_ls/
+/apps/**/_build/
+/apps/**/deps/
+
+/.DS_Store
+/**/.DS_Store
+

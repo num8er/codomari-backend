@@ -2,13 +2,13 @@ import Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :codomari_backend, CodomariBackend.Endpoint,
+config :codomari_api, CodomariApi.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "rLI7RzT9KuMjlw00Sc0Igxm8XYNOizrtJOrCnSLW2uUYQmHSlP8eJOKqwEO4gyQi",
   server: false
 
 # In test we don't send emails.
-config :codomari_backend, CodomariBackend.Mailer, adapter: Swoosh.Adapters.Test
+config :codomari_api, CodomariApi.Mailer, adapter: Swoosh.Adapters.Test
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false

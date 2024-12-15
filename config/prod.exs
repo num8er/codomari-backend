@@ -1,7 +1,7 @@
 import Config
 
 # Configures Swoosh API Client
-config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: CodomariBackend.Finch
+config :swoosh, api_client: Swoosh.ApiClient.Finch, finch_name: CodomariApi.Finch
 
 # Disable Swoosh Local Memory Storage
 config :swoosh, local: false
@@ -9,7 +9,7 @@ config :swoosh, local: false
 # Do not print debug messages in production
 config :logger, level: :info
 
-config :codomari_backend, CodomariBackend.Endpoint,
+config :codomari_api, CodomariApi.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   server: true,

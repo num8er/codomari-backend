@@ -6,7 +6,7 @@ import Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :codomari_backend, CodomariBackend.Endpoint,
+config :codomari_api, CodomariApi.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   server: true,
@@ -41,17 +41,17 @@ config :codomari_backend, CodomariBackend.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :codomari_backend, CodomariBackend.Endpoint,
+config :codomari_api, CodomariApi.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/codomari_backend/(controllers|handlers|helpers|mailer|renderers|router|telemetry|views|live|components)/.*(ex|heex)$"
+      ~r"apps/comomari_api/priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"apps/codomari_api/priv/gettext/.*(po)$",
+      ~r"apps/codomari_api/(controllers|handlers|helpers|mailer|renderers|router|telemetry|views|live|components)/.*(ex|heex)$"
     ]
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :codomari_backend, dev_routes: true
+config :codomari_api, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
