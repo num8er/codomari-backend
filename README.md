@@ -17,6 +17,6 @@ mix app.start APP_NAME
 
 Currently we have `codomari_api` which can be run as:
 
-```
+```sh
 mix app.start codomari_api
 ```
