@@ -7,7 +7,7 @@ defmodule Codomari.MixProject do
     [
       app: :codomari,
       version: "0.0.1",
-      elixir: "~> 1.17",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
