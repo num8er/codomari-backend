@@ -2,7 +2,7 @@ defmodule CodomariBackend.MixProject do
   use Mix.Project
 
   def project do
-    Code.require_file("lib/codomari.ex")
+    Code.require_file("lib/codomari/src/codomari.ex")
     manifest = Codomari.manifest()
 
     [
@@ -14,6 +14,7 @@ defmodule CodomariBackend.MixProject do
       elixirc_paths: elixirc_paths(Mix.env())
     ]
   end
+
 
   defp deps do
     [
@@ -30,8 +31,8 @@ defmodule CodomariBackend.MixProject do
     ]
   end
 
-  defp elixirc_paths(:test), do: ["lib", "test/support"]
-  defp elixirc_paths(_), do: ["lib"]
+  defp elixirc_paths(:test), do: ["lib/codomari/src", "lib/codomari/test/support"]
+  defp elixirc_paths(_), do: ["lib/codomari/src"]
 
   defp aliases do
     [

@@ -14,19 +14,17 @@ defmodule Codomari.Database.PoolWorker do
   def init(_) do
     %{conn: conn, db: db} = connect()
 
-    IO.puts("DB!!!")
     {:ok, %{conn: conn, db: db}}
   end
 
   def connect do
-    config = Application.get_env(:databases, :couchdb)
+    config = Application.get_env(:codomari, :couchdb)
 
     host = Keyword.fetch!(config, :host)
     port = Keyword.fetch!(config, :port)
     username = Keyword.get(config, :username, nil)
     password = Keyword.get(config, :password, nil)
 
-    IO.puts(~s(#{host} #{port} #{username} #{password}))
     conn = open_connection(host, port, username, password)
     {:ok, db} = open_database(conn)
 
@@ -35,20 +33,20 @@ defmodule Codomari.Database.PoolWorker do
 
   def open_connection(host, port, nil, nil) do
     Couchbeam.server_connection(
-      ~s(http://#{host}:#{port}),
+      "http://#{host}:#{port}",
       []
     )
   end
 
   def open_connection(host, port, username, password) do
     Couchbeam.server_connection(
-      ~s(http://#{host}:#{port}),
+      "http://#{host}:#{port}",
       basic_auth: {username, password}
     )
   end
 
   def open_database(conn) do
-    config = Application.get_env(:databases, :couchdb)
+    config = Application.get_env(:codomari, :couchdb)
 
     database = Keyword.fetch!(config, :database)
 
