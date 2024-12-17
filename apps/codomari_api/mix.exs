@@ -2,8 +2,8 @@ defmodule CodomariApi.MixProject do
   use Mix.Project
 
   def project do
-    Code.require_file("../../lib/codomari/src/codomari.ex")
-    Code.require_file("src/codomari_api.ex")
+    Code.require_file("../../lib/codomari/lib/codomari.ex")
+    Code.require_file("lib/codomari_api.ex")
     manifest = CodomariApi.manifest()
 
     [
@@ -50,8 +50,8 @@ defmodule CodomariApi.MixProject do
   end
 
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["src", "test/support"]
-  defp elixirc_paths(_), do: ["src"]
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 
   # Specifies your project dependencies.
   #
