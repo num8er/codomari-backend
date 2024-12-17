@@ -13,13 +13,13 @@ defmodule CodomariApi do
   """
 
   def manifest do
-    manifest = Codomari.manifest()
+    lib_manifest = Codomari.manifest()
 
     [
-      project: manifest[:project],
-      type: :service,
       app: :codomari_api,
-      version: "0.0.1"
+      type: :service,
+      version: "0.0.1",
+      lib: "#{lib_manifest[:name]}/#{lib_manifest[:version]}"
     ]
   end
 

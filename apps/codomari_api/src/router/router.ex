@@ -17,19 +17,22 @@ defmodule CodomariApi.Router do
     plug(:put_secure_browser_headers)
   end
 
-  # /manifest
-  get("/manifest", ManifestHandler, :handle)
+  scope "/manifest", CodomariApi do
+    pipe_through :api
+
+    get("/", ManifestHandler, :handle)
+  end
 
   # /v1
   scope "/v1", CodomariApi do
-    pipe_through(:api)
+    pipe_through :api
 
     # /v1/db/info
     get("/db/info", DbInfoHandler, :handle)
   end
 
   scope "/", CodomariApi do
-    pipe_through(:browser)
+    pipe_through :browser
 
     get("/", IndexPageHandler, :handle)
   end

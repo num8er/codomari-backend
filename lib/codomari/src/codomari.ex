@@ -5,9 +5,8 @@ defmodule Codomari do
 
   def manifest do
     [
-      project: :codomari,
-      version: "0.0.1",
-      type: :library
+      name: :codomari,
+      version: "0.0.1"
     ]
   end
 end

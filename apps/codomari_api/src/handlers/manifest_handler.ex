@@ -1,4 +1,4 @@
-defmodule CodomariApi.Handlers.V1.ManifestHandler do
+defmodule CodomariApi.Handlers.ManifestHandler do
   @moduledoc """
   Handler serves information about the service.
   """
@@ -8,7 +8,6 @@ defmodule CodomariApi.Handlers.V1.ManifestHandler do
   @doc """
   Returns information about the service to connection as json.
   """
-  @spec handle(Plug.Conn.t(), map) :: Plug.Conn.t()
   def handle(conn, _params) do
     CodomariApi.manifest()
     |> Jason.OrderedObject.new()

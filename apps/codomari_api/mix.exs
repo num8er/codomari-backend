@@ -2,6 +2,7 @@ defmodule CodomariApi.MixProject do
   use Mix.Project
 
   def project do
+    Code.require_file("../../lib/codomari/src/codomari.ex")
     Code.require_file("src/codomari_api.ex")
     manifest = CodomariApi.manifest()
 
@@ -12,7 +13,7 @@ defmodule CodomariApi.MixProject do
       config_path: "../../config/config.exs",
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
-      elixir: "~> 1.14",
+      elixir: "~> 1.17",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -57,6 +58,8 @@ defmodule CodomariApi.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:codomari, path: "../../lib/codomari"},
+
       # web framework and related deps
       {:plug_cowboy, "~> 2.5"},
       {:phoenix, "~> 1.7.9"},
