@@ -9,6 +9,7 @@ defmodule CodomariApi.MixProject do
     [
       app: manifest[:app],
       version: manifest[:version],
+      type: :application,
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps_path: "../../deps",

@@ -4,9 +4,13 @@ defmodule Codomari.MixProject do
   use Mix.Project
 
   def project do
+    Code.require_file("lib/codomari.ex")
+    manifest = Codomari.manifest()
+
     [
-      app: :codomari,
-      version: "0.0.1",
+      name: manifest[:name],
+      version: manifest[:version],
+      type: :library,
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
