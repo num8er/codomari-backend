@@ -16,7 +16,7 @@ defmodule CodomariApi do
     lib_manifest = Codomari.manifest()
 
     [
-      app: :codomari_api,
+      name: :codomari_api,
       type: :service,
       version: "0.0.2",
       lib: "#{lib_manifest[:name]}/#{lib_manifest[:version]}"
