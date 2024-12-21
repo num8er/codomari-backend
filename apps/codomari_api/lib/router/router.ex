@@ -1,10 +1,6 @@
 defmodule CodomariApi.Router do
   use CodomariApi, :router
 
-  alias Handlers.IndexPageHandler
-  alias Handlers.ManifestHandler
-  alias Handlers.V1.Db.InfoHandler, as: DbInfoHandler
-
   pipeline :api do
     plug(:accepts, ["json"])
   end
@@ -17,21 +13,30 @@ defmodule CodomariApi.Router do
     plug(:put_secure_browser_headers)
   end
 
-  scope "/manifest", CodomariApi do
+  scope "/manifest", CodomariApi.Handlers do
     pipe_through :api
 
     get("/", ManifestHandler, :handle)
   end
 
   # /v1
-  scope "/v1", CodomariApi do
+  scope "/v1", CodomariApi.Handlers.V1 do
     pipe_through :api
 
-    # /v1/db/info
-    get("/db/info", DbInfoHandler, :handle)
+    # /v1/db
+    scope "/db", Db do
+      # /v1/db/info
+      get("/info", InfoHandler, :handle)
+    end
+
+    # /v1/users
+    scope "/users", Users do
+      # /v1/users/:id
+      get("/:id", GetByIdHandler, :handle)
+    end
   end
 
-  scope "/", CodomariApi do
+  scope "/", CodomariApi.Handlers do
     pipe_through :browser
 
     get("/", IndexPageHandler, :handle)
