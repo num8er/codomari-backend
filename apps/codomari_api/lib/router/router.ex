@@ -1,5 +1,6 @@
 defmodule CodomariApi.Router do
   use CodomariApi, :router
+  import Phoenix.LiveDashboard.Router
 
   pipeline :api do
     plug(:accepts, ["json"])
@@ -11,6 +12,13 @@ defmodule CodomariApi.Router do
     plug(:put_root_layout, html: {CodomariApi.Layouts, :root})
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
+  end
+
+  if Mix.env() == :dev do
+    scope "/__system" do
+      pipe_through :browser
+      live_dashboard "/dashboard"
+    end
   end
 
   scope "/manifest", CodomariApi.Handlers do

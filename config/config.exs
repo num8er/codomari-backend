@@ -16,7 +16,8 @@ config :codomari_api, CodomariApi.Endpoint,
       json: CodomariApi.Renderers.ErrorJSON
     ],
     layout: false
-  ]
+  ],
+  live_view: [signing_salt: "GBMsC8lXMxqdfSeD"]
 
 # Configures the mailer
 #
