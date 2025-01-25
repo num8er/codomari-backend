@@ -44,7 +44,7 @@ defmodule CodomariApi.Router do
     end
   end
 
-  scope "/", CodomariApi.Handlers do
+  scope "/pages", CodomariApi.Handlers do
     pipe_through :browser
 
     get("/", IndexPageHandler, :handle)
