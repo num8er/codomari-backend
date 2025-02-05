@@ -3,7 +3,7 @@
 # Variables
 LOCAL_DIR="/Users/num8er/My/Codomari/codomari_backend/"
 REMOTE_USER="num8er"
-REMOTE_HOST="srv0.codomari.com" # e.g., example.com or an IP address
+REMOTE_HOST="dev0.codomari.com" # e.g., example.com or an IP address
 REMOTE_DIR="/apps/codomari_backend"
 
 # Rsync command
