@@ -9,7 +9,7 @@ defmodule CodomariApi.Application do
 
   @impl true
   def start(_type, _args) do
-    database_pool_config = Application.get_env(:codomari_api, :couchdb_pool)
+    database_pool_config = get_pool_config(:couchdb_pool)
 
     children = [
       CodomariApi.Telemetry,
@@ -32,6 +32,10 @@ defmodule CodomariApi.Application do
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: CodomariApi.Supervisor]
     Supervisor.start_link(children, opts)
+  end
+
+  defp get_pool_config(pool_name) do
+    Application.get_env(:codomari, pool_name)
   end
 
   # Tell Phoenix to update the endpoint configuration

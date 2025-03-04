@@ -7,7 +7,7 @@ config :codomari, :couchdb,
   password: "codomari",
   database: "codomari"
 
-config :codomari_api, :couchdb_pool,
+config :codomari, :couchdb_pool,
   name: {:local, :couchdb_pool},
   worker_module: Codomari.Database.PoolWorker,
   size: 10,

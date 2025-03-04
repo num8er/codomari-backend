@@ -27,7 +27,28 @@ defmodule Codomari.MixProject do
 
       # fixes issue in Couchbeam
       # https://github.com/benoitc/couchbeam/issues/200
-      {:jsx, "2.8.3", override: true}
+      {:jsx, "2.8.3", override: true},
+
+      # Moving modules to core mix project to have 1 place defining
+
+      # web framework and related deps
+      {:plug_cowboy, "~> 2.5"},
+      {:phoenix, "~> 1.7.9"},
+      {:phoenix_html, "~> 3.3"},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_live_view, "~> 0.20.1"},
+      {:phoenix_live_dashboard, "~> 0.8.2"},
+
+      # other necessary deps
+      {:floki, ">= 0.30.0", only: :test},
+      {:swoosh, "~> 1.3"},
+      {:finch, "~> 0.13"},
+      {:telemetry_metrics, "~> 0.6"},
+      {:telemetry_poller, "~> 1.0"},
+      {:gettext, "~> 0.20"},
+      {:jason, "~> 1.2"},
+      {:dns_cluster, "~> 0.1.1"}
+
     ]
   end
 
